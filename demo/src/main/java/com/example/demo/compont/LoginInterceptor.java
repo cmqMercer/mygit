@@ -14,8 +14,6 @@ public class LoginInterceptor implements HandlerInterceptor{
 
        Object user = request.getSession().getAttribute("loginUser");
        if(user==null){
-
-           System.out.println("aaa");
            request.setAttribute("msg","没有登录");
     request.getRequestDispatcher("/index.html").forward(request,response);
     return false;
