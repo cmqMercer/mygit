@@ -6,10 +6,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @Configuration
-public class MyMvcConfig extends WebMvcConfigurerAdapter {
+public class MyMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
@@ -24,8 +25,8 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
     }
 
     @Bean
-    public WebMvcConfigurerAdapter WebMvcConfigurerAdapter(){
-        WebMvcConfigurerAdapter adapterter = new WebMvcConfigurerAdapter() {
+    public WebMvcConfigurer WebMvcConfigurer(){
+        WebMvcConfigurer adapterter = new WebMvcConfigurer() {
             @Override
             public void addViewControllers(ViewControllerRegistry registry) {
 //                super.addViewControllers(registry);

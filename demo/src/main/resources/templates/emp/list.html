@@ -202,8 +202,11 @@
 										<td th:text="${emp.department.departmentName}"></td>
 										<td th:text="${#dates.format(emp.birth,'yyyy-MM-dd')}"></td>
 										<td>
-											<button class="btn btn-sm btn-primary">编辑</button>
-											<button class="btn btn-sm btn-danger">删除</button>
+											<a class="btn btn-sm btn-primary" th:href="@{/emp/}+${emp.id}">编辑</a>
+											<form th:action="@{/emp/}+${emp.id}" method="post">
+												<input type="hidden" name="_method" value="delete"/>
+											<button   class="btn btn-sm btn-danger">删除</button>
+											</form>
 										</td>
 									</tr>
 
