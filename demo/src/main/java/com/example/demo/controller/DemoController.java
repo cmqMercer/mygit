@@ -1,18 +1,20 @@
 package com.example.demo.controller;
 
 
+import com.example.demo.exception.UserNotExist;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class DemoController {
 
     @ResponseBody
     @RequestMapping("/hello")
-    public String hello(){
+    public String hello(@RequestParam("user")String user)
+    {
+        if(user.equals("aaa")){
+            throw new UserNotExist();
+        }
         return "hello";
     }
 
