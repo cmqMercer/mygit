@@ -19,8 +19,15 @@ public class UserController {
 
     @GetMapping("/user/{name}")
     public User getUserByName(@PathVariable("name")String name){
-        User user = userMapper.getUser(name);
+        User user = userMapper.getUserByName(name);
         System.out.println(user==null?"null":user.getFname_l2());
     return user;
+    }
+
+    @GetMapping("/user")
+    public  User getUserByNumber(@RequestParam("number")String number){
+        User u  = userMapper.getUserByNumber(number);
+        return  u;
+
     }
 }
